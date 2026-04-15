@@ -6,7 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="https://giabao123123.github.io/trochoi/trochoi.css" />
+    <link
+      rel="stylesheet"
+      href="https://giabao123123.github.io/trochoi/trochoi.css"
+    />
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -780,7 +783,6 @@
         stopAllMusic();
       }
       let quiz = [
-        // ===== 1. LỄ HỘI – TÍN NGƯỠNG (8 CÂU) =====
         {
           question:
             "Lễ hội văn hóa tiêu biểu nhất của Gia Lai gắn với di sản UNESCO là gì?",
@@ -848,8 +850,6 @@
           ],
           correct: 2,
         },
-
-        // ===== 2. VĂN HÓA – CỘNG ĐỒNG (5 CÂU) =====
         {
           question: "Gia Lai có bao nhiêu dân tộc cùng sinh sống?",
           answers: ["18 dân tộc", "28 dân tộc", "38 dân tộc", "54 dân tộc"],
@@ -877,8 +877,6 @@
           answers: ["Phật giáo", "Công giáo", "Tin Lành", "Cao Đài"],
           correct: 1,
         },
-
-        // ===== 3. ĐỊA LÝ – TỰ NHIÊN (5 CÂU) =====
         {
           question: "Gia Lai thuộc khu vực địa lý nào của Việt Nam?",
           answers: [
@@ -909,8 +907,6 @@
           answers: ["Lào", "Thái Lan", "Campuchia", "Trung Quốc"],
           correct: 2,
         },
-
-        // ===== 4. DU LỊCH – ẨM THỰC (6 CÂU) =====
         {
           question: "Núi lửa nổi tiếng gắn với hoa dã quỳ ở Gia Lai là gì?",
           answers: ["Chư Đăng Ya", "Chư Nâm", "Kon Ka Kinh", "Hàm Rồng"],
@@ -951,8 +947,6 @@
           ],
           correct: 1,
         },
-
-        // ===== 5. KINH TẾ – PHÁT TRIỂN (6 CÂU) =====
         {
           question: "Cây công nghiệp chủ lực của Gia Lai là gì?",
           answers: ["Lúa", "Cà phê", "Mía", "Lúa mì"],
@@ -995,17 +989,16 @@
           correct: 1,
         },
       ];
-
       let toastTimer = null;
       quiz = quiz.sort(() => Math.random() - 0.5);
       let index = 0;
       let score = 0;
       let correctCount = 0;
-      let totalTime = 10 * 60; // 10 phút
+      let totalTime = 10 * 60;
       let timer;
-      const correctSound = new Audio("./amthanh/dung.mp3"); // đúng → "Yee!"
-      const wrongSound = new Audio("./amthanh/wrong.mp3"); // sai → "Ô ồ!"
-      const finishSound = new Audio("./amthanh/end.mp3"); // 🔊 âm thanh kết thúc
+      const correctSound = new Audio("./amthanh/dung.mp3"); 
+      const wrongSound = new Audio("./amthanh/wrong.mp3"); 
+      const finishSound = new Audio("./amthanh/end.mp3");
       function showToast(message, type) {
         const toast = document.getElementById("toast");
         if (toastTimer) {
@@ -1254,11 +1247,9 @@
         const total = quiz.length;
         const correctPercent = Math.round((correctCount / total) * 100);
         const wrongPercent = 100 - correctPercent;
-
         const timeUsed = 10 * 60 - totalTime;
         const minutes = Math.floor(timeUsed / 60);
         const seconds = timeUsed % 60;
-
         let rank, emoji;
         if (score >= total * 10 * 0.9) {
           rank = "Xuất sắc";
@@ -1273,10 +1264,8 @@
           rank = "Cần cố gắng";
           emoji = "💪";
         }
-
         const text = `
 🎮 QUIZ GIA LAI 🎮
-
 🏆 Điểm: ${score}
 ✅ Số câu đúng: ${correctCount}/${total}
 ❌ Số câu sai: ${wrongCount}
@@ -1284,10 +1273,8 @@
 📉 Tỷ lệ sai: ${wrongPercent}%
 ⏱ Thời gian: ${minutes} phút ${seconds} giây
 🎖 Xếp hạng: ${emoji} ${rank}
-
 🔥 Bạn có thể làm tốt hơn không? Thử ngay!
 `;
-
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard
             .writeText(text.trim())
